@@ -40,8 +40,9 @@ const Login = ({ showSignup, setShowSignup, setShowLogin }) => {
         interest: [],
         personalityType: "",
         socialHandles: {},
+        formStatus: false,
       });
-      navigate("/profile");
+      navigate("/root/profile");
     } catch (error) {
       setError(error);
     }
@@ -79,8 +80,9 @@ const Login = ({ showSignup, setShowSignup, setShowLogin }) => {
         socialHandles: {},
         meetBits: 0,
         repo: 0,
+        formStatus: false,
       });
-      navigate("/profile");
+      navigate("/root/profile");
       setLoading(false);
     } catch (error) {
       setLoading(false);

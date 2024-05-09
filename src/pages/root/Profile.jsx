@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import meetbit from "../../assets/meetbit.png";
 import repo from "../../assets/repo.png";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 const Profile = () => {
   const { currentUser } = useAuth();
+  if (currentUser?.formStatus === false)
+    return <Navigate to={"/details/age"} />;
   const { editable, setEditable } = useState(false);
   const profileNavLinks = [
     { id: "1", name: "About", link: "" },
@@ -13,8 +15,8 @@ const Profile = () => {
     { id: "4", name: "Links", link: "links" },
   ];
   return (
-    <div className="h-screen overflow-y-scroll">
-      <div className="flex justify-between items-center w-full py-4 px-2">
+    <div className="h-screen overflow-y-scroll ">
+      <div className="flex justify-between items-center w-full py-4 px-2 text-white">
         <div className="flex justify-center items-center gap-5 flex-1 ">
           <img
             src={currentUser?.photoURL}
@@ -54,12 +56,12 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-[80px] bg-secondary-btn flex justify-between pr-3">
+      <div className="w-full h-[80px]  flex justify-between pr-3">
         <div className="flex items-center">
           {profileNavLinks.map((nav) => (
             <Link
               to={`/root/profile/${nav.link}`}
-              className="px-2 my-1 py-5 hover:bg-primary-btn hover:text-black rounded-md mx-2 flex items-center justify-center text-[1.3rem] text-white"
+              className="px-2 my-1 py-3 bg-purple-light  rounded-md mx-2 flex items-center justify-center text-[1rem] text-white  w-[130px]"
               key={nav.id}
             >
               {nav.name}
@@ -67,7 +69,7 @@ const Profile = () => {
           ))}
         </div>
         <button
-          className="bg-primary-btn my-2 px-6 rounded-full text-[1.2rem]"
+          className="bg-secondary-btn my-4 px-6 py-3  text-[1rem] text-white rounded-md"
           onClick={(prev) => {
             setEditable(!prev);
           }}

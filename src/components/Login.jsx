@@ -18,7 +18,7 @@ const Login = ({ showLogin, setShowLogin }) => {
       const res = await signInWithPopup(auth, provider);
       const user = res?.user;
       console.log(user);
-      navigate("/profile");
+      navigate("/root/profile");
     } catch (error) {
       setError(error);
     }
@@ -33,7 +33,7 @@ const Login = ({ showLogin, setShowLogin }) => {
       const res = await signInWithEmailAndPassword(auth, email, password);
       const user = res?.user;
       console.log(user);
-      navigate("/profile");
+      navigate("/root/profile");
       setLoading(false);
     } catch (error) {
       setLoading(false);

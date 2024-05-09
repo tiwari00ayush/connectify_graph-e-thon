@@ -58,56 +58,7 @@ const Skills = () => {
     { id: 48, name: "Leadership" },
     { id: 49, name: "Communication Skills" },
     { id: 50, name: "Problem Solving" },
-    { id: 51, name: "Critical Thinking" },
-    { id: 52, name: "Time Management" },
-    { id: 53, name: "Teamwork" },
-    { id: 54, name: "Customer Service" },
-    { id: 55, name: "Sales" },
-    { id: 56, name: "Financial Management" },
-    { id: 57, name: "Accounting" },
-    { id: 58, name: "Legal Knowledge" },
-    { id: 59, name: "Human Resources" },
-    { id: 60, name: "Recruitment" },
-    { id: 61, name: "Training and Development" },
-    { id: 62, name: "Public Speaking" },
-    { id: 63, name: "Event Management" },
-    { id: 64, name: "Customer Relationship Management (CRM)" },
-    { id: 65, name: "Conflict Resolution" },
-    { id: 66, name: "Emotional Intelligence" },
-    { id: 67, name: "Foreign Language Proficiency" },
-    { id: 68, name: "Research Skills" },
-    { id: 69, name: "Presentation Skills" },
-    { id: 70, name: "Analytical Skills" },
-    { id: 71, name: "Creativity" },
-    { id: 72, name: "Adaptability" },
-    { id: 73, name: "Attention to Detail" },
-    { id: 74, name: "Mechanical Skills" },
-    { id: 75, name: "Electrical Skills" },
-    { id: 76, name: "Plumbing Skills" },
-    { id: 77, name: "Carpentry Skills" },
-    { id: 78, name: "Welding Skills" },
-    { id: 79, name: "Masonry Skills" },
-    { id: 80, name: "Cooking Skills" },
-    { id: 81, name: "Baking Skills" },
-    { id: 82, name: "Photography Skills" },
-    { id: 83, name: "Videography Skills" },
-    { id: 84, name: "Artistic Skills" },
-    { id: 85, name: "Music Skills" },
-    { id: 86, name: "Singing Skills" },
-    { id: 87, name: "Dancing Skills" },
-    { id: 88, name: "Acting Skills" },
-    { id: 89, name: "Yoga and Meditation" },
-    { id: 90, name: "Fitness Training" },
-    { id: 91, name: "First Aid and CPR" },
-    { id: 92, name: "Event Planning" },
-    { id: 93, name: "Fundraising Skills" },
-    { id: 94, name: "Volunteer Management" },
-    { id: 95, name: "Fundamental Sciences" },
-    { id: 96, name: "Historical Knowledge" },
-    { id: 97, name: "Geographical Knowledge" },
-    { id: 98, name: "Cultural Awareness" },
-    { id: 99, name: "Environmental Awareness" },
-    { id: 100, name: "Ethical Awareness" },
+
     // Add more skills as needed
   ]);
   const [newSkill, setNewSkill] = useState("");
@@ -127,20 +78,25 @@ const Skills = () => {
     navigate("/details/interest");
   };
   return (
-    <>
+    <div>
+      <h1 className="font-livvic text-[36px]">Skill Section</h1>
+      <p className="text-para my-3">
+        Select your skills related to your background at least 5{" "}
+      </p>
       <div className="flex w-full">
         <input
           type="text"
           value={newSkill}
           name="age"
           id="age"
-          className="rounded-md bg-input-box h-[40px] px-2 w-full"
+          className="rounded-md bg-input-box h-[40px] px-2 w-full outline-none text-black"
+          placeholder="Enter your skill and press add"
           onChange={(e) => {
             setNewSkill(e.target.value);
           }}
         />
         <button
-          className="bg-purple-light px-6 text-white py-2"
+          className="bg-purple-light px-6 text-white py-2 rounded-md"
           onClick={() => {
             console.log(newSkill);
             setNewSkillArr((prev) => [
@@ -158,22 +114,15 @@ const Skills = () => {
         </button>
       </div>
 
-      <p className="text-red">
-        Write your skill and then press enter ( if not present in the list)
-      </p>
       <form className="flex flex-col py-4 gap-4" onSubmit={handleSubmit}>
-        <h1 className="text-[20px] ">
-          Select your skills related to your background{" "}
-          <p className="text-red text-[0.9rem]">Sroll down to continue</p>
-        </h1>
         <div className="flex flex-wrap gap-x-1 gap-y-2">
           {[newSkillArr, skills].map((arr) =>
             arr.map((skill) => (
               <span
-                className={`cursor-pointer py-2 px-3 rounded-lg border-2 border-purple-light hover:bg-purple-light duration-200 ease-in-out hover:text-white ${
+                className={`cursor-pointer py-2 px-3 rounded-lg   hover:bg-purple-light duration-200 ease-in-out hover:text-white ${
                   selectedSkills.includes(skill.name)
                     ? "bg-purple-light text-white"
-                    : "bg-white"
+                    : "bg-input"
                 }`}
                 key={skill.id}
                 onClick={(e) => {
@@ -201,7 +150,7 @@ const Skills = () => {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

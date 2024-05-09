@@ -198,27 +198,40 @@ const Age = () => {
   };
   console.log(showDegree);
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="flex flex-col py-4 gap-4">
-        <div className="flex flex-col gap-2">
-          <label htmlFor="age" className="font-livvic">
-            1. Enter your age :
+    <div className="w-full px-2">
+      <h1 className="font-livvic text-[36px]">About Section</h1>
+      <p className="text-para">Tell us about yourself</p>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col py-10 mt-2 gap-4 items-start "
+      >
+        <div className="flex  items-stretch gap-2 justify-start w-full">
+          <label
+            htmlFor="age"
+            className="font-livvic w-[200px] text-center border-[1px] bg-input-box text-black flex justify-center items-center rounded-md"
+          >
+            Age
           </label>
           <input
             required
             type="number"
             name="age"
             id="age"
-            className="rounded-md bg-input-box h-[40px] px-2"
+            className="rounded-lg bg-input h-[40px] px-2 w-full outline-none"
           />
         </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="sex">2. Enter your gender :</label>
+        <div className="flex  items-stretch gap-2 justify-start w-full">
+          <label
+            htmlFor="sex"
+            className="font-livvic w-[200px] text-center border-[1px] bg-input-box text-black flex justify-center items-center rounded-md"
+          >
+            Gender{" "}
+          </label>
           <select
             required
             name="sex"
             id="sex"
-            className="rounded-md bg-input-box h-[40px] px-2"
+            className="rounded-lg bg-input h-[40px] px-2 w-full outline-none"
           >
             <option value="male">male</option>
             <option value="female">female</option>
@@ -226,14 +239,17 @@ const Age = () => {
             <option value="nottosay">prefer not to say</option>
           </select>
         </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="state" className="font-livvic">
-            3. Enter your College State :
+        <div className="flex  items-stretch gap-2 justify-start w-full">
+          <label
+            htmlFor="state"
+            className="font-livvic w-[200px] text-center border-[1px] bg-input-box text-black flex justify-center items-center rounded-md"
+          >
+            College State
           </label>
           <select
             name="state"
             id="state"
-            className="rounded-md bg-input-box h-[40px] px-2"
+            className="rounded-lg bg-input h-[40px] px-2 w-full outline-none"
           >
             {stateList?.map((state, index) => (
               <option value="state" key={index}>
@@ -242,56 +258,64 @@ const Age = () => {
             ))}
           </select>
         </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="age" className="font-livvic">
-            4. Enter your College name :
+        <div className="flex  items-stretch gap-2 justify-start w-full">
+          <label
+            htmlFor="age"
+            className="font-livvic w-[200px] text-center border-[1px] bg-input-box text-black flex justify-center items-center rounded-md"
+          >
+            College name
           </label>
           <input
             required
             type="text"
             name="age"
             id="age"
-            className="rounded-md bg-input-box h-[40px] px-2"
+            className="rounded-lg bg-input h-[40px] px-2 w-full outline-none"
           />
         </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="degree" className="font-livvic">
-            5. What is your current education background :
-          </label>
-          <input
-            value={degree}
-            required
-            type="text"
-            name="degree"
-            id="degree"
-            placeholder="B.TECH, MBBS, BBA, MCA"
-            className="rounded-md bg-input-box h-[40px] px-2"
-            onChange={(e) => {
-              handleInput(e);
-            }}
-          />
-          <div
-            className={`w-full border-2 border-black rounded-md ${
-              showDegree.length == 0 ? "hidden" : ""
-            }`}
+        <div className="flex  items-start gap-2 justify-start w-full ">
+          <label
+            htmlFor="degree"
+            className="font-livvic w-[200px] text-center border-[1px] bg-input-box text-black flex justify-center items-center rounded-md py-2"
           >
-            {showDegree?.map((degree) => (
-              <p
-                key={degree.id}
-                className="py-2 px-2 hover:bg-input-box"
-                onClick={(e) => {
-                  setDegree(degree.name);
-                  setShowDegree([]);
-                }}
-              >
-                {degree.name}{" "}
-              </p>
-            ))}
+            Degree
+          </label>
+          <div className="w-full">
+            <input
+              value={degree}
+              required
+              type="text"
+              name="degree"
+              id="degree"
+              placeholder="B.TECH, MBBS, BBA, MCA"
+              className="rounded-lg bg-input h-[40px] px-2 w-full outline-none "
+              onChange={(e) => {
+                handleInput(e);
+              }}
+            />
+            <div
+              className={`w-full max-h-[300px] overflow-y-scroll bg-input rounded-md ${
+                showDegree.length == 0 ? "hidden" : "block"
+              }`}
+            >
+              {showDegree?.map((degree) => (
+                <p
+                  key={degree.id}
+                  className="py-2 px-2  hover:border-2 hover:border-white rounded-md"
+                  onClick={(e) => {
+                    setDegree(degree.name);
+                    setShowDegree([]);
+                  }}
+                >
+                  {degree.name}{" "}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="flex flex-row-reverse">
+        <div className="flex flex-row-reverse w-full">
           <button
-            className="px-5 py-2 bg-purple-light rounded-md text-white my-2"
+            className="px-5 py-2 bg-purple-light rounded-md text-white mt-5"
             type="submit"
           >
             Next

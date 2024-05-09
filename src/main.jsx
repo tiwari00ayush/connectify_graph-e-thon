@@ -27,17 +27,20 @@ import {
   ProfileEducation,
   ProfileInterest,
   ProfileLinks,
+  CreatePost,
 } from "./pages/root";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route path="root" element={<RootLayout />}>
+        <Route path="" element={<Home />} />
         <Route path="profile" element={<Profile />}>
           <Route path="" element={<ProfileAbout />} />
           <Route path="education" element={<ProfileEducation />} />
           <Route path="interest" element={<ProfileInterest />} />
           <Route path="links" element={<ProfileLinks />} />
         </Route>
+        <Route path="create" element={<CreatePost />} />
       </Route>
       <Route path="landing" element={<LandingPage />} />
       <Route path="about" element={<AboutUs />} />

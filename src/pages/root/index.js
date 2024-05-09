@@ -4,6 +4,8 @@ import ProfileAbout from "./ProfileAbout";
 import ProfileEducation from "./ProfileEducation";
 import ProfileInterest from "./ProfileInterest";
 import ProfileLinks from "./ProfileLinks";
+import CreatePost from "./CreatePost";
+import Group from "./Group";
 export {
   RootLayout,
   Profile,
@@ -11,4 +13,6 @@ export {
   ProfileEducation,
   ProfileInterest,
   ProfileLinks,
+  CreatePost,
+  Group,
 };

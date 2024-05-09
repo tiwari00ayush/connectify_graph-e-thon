@@ -18,6 +18,8 @@ export default {
       "secondary-btn": "#2E2A47",
       "primary-btn": "#FDDE55",
       "input-box": "#D9D9D9",
+      input: "#2f2f2f",
+      para: "#8c8c8c",
     },
   },
   plugins: [],
