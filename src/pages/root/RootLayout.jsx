@@ -36,7 +36,7 @@ const RootLayout = () => {
       id: "7",
       name: "Create Post",
       icon: <IoIosCreate />,
-      link: "/root/profile",
+      link: "/root/create",
     },
     { id: "0", name: "Log out", icon: <IoIosLogOut />, link: "" },
   ];
@@ -79,9 +79,7 @@ const RootLayout = () => {
           ))}
         </div>
       </div>
-      <div className="flex-1  h-screen overflow-y-scroll px-5">
-        {<Outlet />}
-      </div>
+      <div className="flex-1  h-screen overflow-y-scroll">{<Outlet />}</div>
     </div>
   );
 };

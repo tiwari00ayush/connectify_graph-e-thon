@@ -71,7 +71,7 @@ const CreatePost = () => {
   return (
     <>
       {loading ? (
-        <div className="fixed w-full h-full bg-input-box bg-opacity-50 flex flex-col justify-center items-center z-10 text-red">
+        <div className="fixed w-full h-full bg-input bg-opacity-50 flex flex-col justify-center items-center z-10 text-red">
           {/* <Loader /> */}
           <span className="text-3xl text-white">Loading </span>
         </div>
@@ -79,7 +79,7 @@ const CreatePost = () => {
         <span></span>
       )}
 
-      <div className="md:px-10 py-10 px-2 h-screen overflow-y-scroll flex-1 relative">
+      <div className="md:px-10 py-10 px-2 h-screen overflow-y-scroll flex-1 relative text-white">
         <h1 className="text-3xl font-bold mb-10">Create Post</h1>
         <label htmlFor="caption">
           Caption ( Tell us about your experience with the group or any advice
@@ -90,10 +90,10 @@ const CreatePost = () => {
           id="caption"
           value={caption}
           onChange={(e) => setCaption(e.target.value)}
-          className="bg-input-box w-full  min-h-[100px] rounded-md border-gray-400 border-2  outline-none px-2 py-2 mb-10 mt-3"
+          className="bg-input w-full  min-h-[100px] rounded-md border-gray-400 border-2  outline-none px-2 py-2 mb-10 mt-3"
         ></textarea>
         <label htmlFor="file">Add Photos ( Your group photo)</label>
-        <div className="relative bg-input-box w-full min-h-[500px] flex justify-center items-center rounded-md border-gray-400 border-2 mb-10 mt-3 outline-none px-2 py-2">
+        <div className="relative bg-input w-full min-h-[500px] flex justify-center items-center rounded-md border-gray-400 border-2 mb-10 mt-3 outline-none px-2 py-2">
           {file ? (
             <img
               src={URL.createObjectURL(file)}
@@ -123,13 +123,13 @@ const CreatePost = () => {
           id="location"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
-          className="bg-input-box w-full  min-h-[10px] rounded-md border-gray-400 border-2  outline-none px-2 py-2 mb-10 mt-3"
+          className="bg-input w-full  min-h-[10px] rounded-md border-gray-400 border-2  outline-none px-2 py-2 mb-10 mt-3"
         ></input>
         <label htmlFor="tags">Add Tags (seprated by comma)</label>
         <input
           name="tags"
           id="tags"
-          className="bg-input-box w-full  min-h-[10px] rounded-md border-gray-400 border-2  outline-none px-2 py-2 mb-10 mt-3"
+          className="bg-input w-full  min-h-[10px] rounded-md border-gray-400 border-2  outline-none px-2 py-2 mb-10 mt-3"
           placeholder="art,science,trendy"
           value={tags}
           onChange={(e) => {
@@ -138,7 +138,7 @@ const CreatePost = () => {
           }}
         ></input>
         <div className="flex justify-end items-stretch">
-          <button className="py-2 px-5 mx-1 bg-input-box my-2 rounded-md ">
+          <button className="py-2 px-5 mx-1 bg-input my-2 rounded-md ">
             Cancel
           </button>
           <button

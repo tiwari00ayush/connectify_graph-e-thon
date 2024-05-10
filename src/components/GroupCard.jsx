@@ -1,6 +1,6 @@
 import React from "react";
 
-const GroupCard = ({ name }) => {
+const GroupCard = ({ name, lastMessage }) => {
   return (
     <div className="w-full flex items-center py-2 px-2 gap-2 hover:bg-input rounded-md">
       <img
@@ -10,7 +10,7 @@ const GroupCard = ({ name }) => {
       />
       <div className="flex flex-col flex-1">
         <h1 className="text-[1.2rem]">{name}</h1>
-        <p className="text-para">kjbasd aksd</p>
+        <p className="text-para">{lastMessage?.slice(0, 15)}...</p>
       </div>
     </div>
   );
