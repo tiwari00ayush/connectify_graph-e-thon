@@ -44,7 +44,7 @@ const router = createBrowserRouter(
         <Route path="create" element={<CreatePost />} />
         <Route path="group" element={<Group />} />
       </Route>
-      <Route path="landing" element={<LandingPage />} />
+      <Route path="" element={<LandingPage />} />
       <Route path="about" element={<AboutUs />} />
       <Route path="details" element={<DetailLayout />}>
         <Route path="age" element={<Age />} />
