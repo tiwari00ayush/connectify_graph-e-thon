@@ -28,6 +28,7 @@ import {
   ProfileInterest,
   ProfileLinks,
   CreatePost,
+  Group,
 } from "./pages/root";
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -41,6 +42,7 @@ const router = createBrowserRouter(
           <Route path="links" element={<ProfileLinks />} />
         </Route>
         <Route path="create" element={<CreatePost />} />
+        <Route path="group" element={<Group />} />
       </Route>
       <Route path="landing" element={<LandingPage />} />
       <Route path="about" element={<AboutUs />} />

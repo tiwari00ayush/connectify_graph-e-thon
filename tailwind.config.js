@@ -20,6 +20,7 @@ export default {
       "input-box": "#D9D9D9",
       input: "#2f2f2f",
       para: "#8c8c8c",
+      green: "#019d91",
     },
   },
   plugins: [],

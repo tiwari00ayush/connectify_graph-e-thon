@@ -41,6 +41,9 @@ const Login = ({ showSignup, setShowSignup, setShowLogin }) => {
         personalityType: "",
         socialHandles: {},
         formStatus: false,
+        available: false,
+        groupStatus: false,
+        groupId: null,
       });
       navigate("/root/profile");
     } catch (error) {
@@ -81,6 +84,9 @@ const Login = ({ showSignup, setShowSignup, setShowLogin }) => {
         meetBits: 0,
         repo: 0,
         formStatus: false,
+        available: false,
+        groupStatus: false,
+        groupId: null,
       });
       navigate("/root/profile");
       setLoading(false);

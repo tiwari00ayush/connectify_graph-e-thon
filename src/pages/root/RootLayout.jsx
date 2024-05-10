@@ -14,6 +14,7 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../firebase.config";
 const RootLayout = () => {
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
   const navLinks = [
     { id: "1", name: "Home", icon: <FaHome />, link: "/root" },
     {
@@ -69,6 +70,11 @@ const RootLayout = () => {
             >
               {nav.icon}
               {nav.name}
+              {nav.id === "3" && currentUser?.groupStatus && (
+                <span className="bg-red w-[20px] h-[20px] rounded-full text-cente flex justify-center items-center text-[0.8rem]">
+                  1
+                </span>
+              )}
             </Link>
           ))}
         </div>
