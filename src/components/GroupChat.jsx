@@ -57,7 +57,7 @@ const GroupChat = ({ group }) => {
       </div>
       <div className=" overflow-y-scroll text-white px-2">
         {group?.messages.length !== 0 &&
-          group.messages.map((message) => <Message message={message} />)}
+          group?.messages?.map((message) => <Message message={message} />)}
       </div>
       <div className="h-[50px] w-full flex">
         <input

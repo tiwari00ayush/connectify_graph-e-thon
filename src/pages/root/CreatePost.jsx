@@ -1,11 +1,12 @@
 import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import React, { useState } from "react";
 import { MdDelete } from "react-icons/md";
-import { db } from "../../firebase.config";
+import { db, storage } from "../../firebase.config";
 import { useAuth } from "../../context/AuthContext";
 // import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
-// import Loader from "../../components/Loader";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import loader from "../../assets/icons/loader.svg";
 const CreatePost = () => {
   const { currentUser } = useAuth();
   const [loading, setLoading] = useState(false);
@@ -22,57 +23,57 @@ const CreatePost = () => {
     const randomString = Math.random().toString(36).substring(2, 8); // Generate a random string
     const fileName = `${currentUser.uid}_${timestamp}_${randomString}.jpg`; // Constructing the unique file name
     console.log(caption, location, file, tags);
-    // const storageRef = ref(storage, `images/${fileName}`);
-    // // const storageRef = ref(storage, currentUser.username);
+    const storageRef = ref(storage, `images/${fileName}`);
+    // const storageRef = ref(storage, currentUser.username);
 
-    // const uploadTask = uploadBytesResumable(storageRef, file);
-    // uploadTask.on(
-    //   "state_changed",
-    //   (snapshot) => {
-    //     const progress =
-    //       (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    //     console.log("Upload is " + progress + "% done");
-    //     switch (snapshot.state) {
-    //       case "paused":
-    //         console.log("Upload is paused");
-    //         break;
-    //       case "running":
-    //         console.log("Upload is running");
-    //         break;
-    //     }
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   },
-    //   () => {
-    //     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-    //       const time = new Date(timestamp);
-    //       try {
-    //         const docRef = await addDoc(collection(db, "posts"), {
-    //           caption,
-    //           ["fileUrl"]: downloadURL,
-    //           ["likeBy"]: [],
-    //           location,
-    //           tags,
-    //           ["owner"]: currentUser.uid,
-    //           ["timestamp"]: time,
-    //         });
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log("Upload is " + progress + "% done");
+        switch (snapshot.state) {
+          case "paused":
+            console.log("Upload is paused");
+            break;
+          case "running":
+            console.log("Upload is running");
+            break;
+        }
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+          const time = new Date(timestamp);
+          try {
+            const docRef = await addDoc(collection(db, "posts"), {
+              caption,
+              ["fileUrl"]: downloadURL,
+              ["likeBy"]: [],
+              location,
+              tags,
+              ["owner"]: currentUser.uid,
+              ["timestamp"]: time,
+            });
 
-    //         setLoading(false);
-    //         navigate(`/profile/${currentUser.uid}`);
-    //       } catch (e) {
-    //         setLoading(false);
-    //         console.error("Error setting document: ", e);
-    //       }
-    //     });
-    //   }
-    // );
+            setLoading(false);
+            navigate(`/root`);
+          } catch (e) {
+            setLoading(false);
+            console.error("Error setting document: ", e);
+          }
+        });
+      }
+    );
   };
   return (
     <>
       {loading ? (
         <div className="fixed w-full h-full bg-input bg-opacity-50 flex flex-col justify-center items-center z-10 text-red">
-          {/* <Loader /> */}
+          <img src={loader} alt="loader" />
           <span className="text-3xl text-white">Loading </span>
         </div>
       ) : (

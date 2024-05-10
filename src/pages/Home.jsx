@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase.config.js";
 const Home = () => {
-  const allPost = [
-    {
-      location: "ABES EC",
-      caption: "Lorem ipsum dolor sit amet consectetur adipisicing.",
-      tags: ["a", "b"],
-      fileUrl: "https://www.pacegallery.com/media/images/16_9-2.width-2000.png",
-    },
-  ];
+  // const allPost = [
+  //   {
+  //     location: "ABES EC",
+  //     caption: "Lorem ipsum dolor sit amet consectetur adipisicing.",
+  //     tags: ["a", "b"],
+  //     fileUrl: "https://www.pacegallery.com/media/images/16_9-2.width-2000.png",
+  //   },
+  // ];
+  const [allPost, setAllPost] = useState([]);
+  useEffect(() => {
+    const getAllPost = async () => {
+      const querySnapshot = await getDocs(collection(db, "posts"));
+      const postArr = [];
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        postArr.push(doc.data());
+      });
+      setAllPost(postArr);
+    };
+    getAllPost();
+  });
   const owner = {
     uid: "123",
     photoURL: "https://www.pacegallery.com/media/images/16_9-2.width-2000.png",

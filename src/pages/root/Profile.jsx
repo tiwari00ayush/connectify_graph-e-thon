@@ -15,7 +15,7 @@ const Profile = () => {
     { id: "4", name: "Links", link: "links" },
   ];
   return (
-    <div className="h-screen overflow-y-scroll ">
+    <div className="h-screen overflow-y-scroll px-4">
       <div className="flex justify-between items-center w-full py-4 px-2 text-white">
         <div className="flex justify-center items-center gap-5 flex-1 ">
           <img

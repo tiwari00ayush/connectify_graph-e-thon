@@ -28,7 +28,7 @@ const Message = ({ message }) => {
     getSenderInfo();
   }, []);
   useEffect(() => {
-    if (message.senderID === currentUser.uid) {
+    if (message?.senderID === currentUser?.uid) {
       setIsOwner(true);
     } else setIsOwner(false);
   }, []);
@@ -56,16 +56,16 @@ const Message = ({ message }) => {
       >
         <p
           className={`px-2 text-black bg-white rounded-r-md rounded-b-md ${
-            message.message === "" ? "hidden" : ""
+            message?.message === "" ? "hidden" : ""
           }`}
         >
           <p className="text-green text-[0.8rem]">{userInfo?.displayName}</p>
-          {message.message}
+          {message?.message}
         </p>
         <img
-          src={`${message.img ? message.img : ""}`}
+          src={`${message?.img ? message?.img : ""}`}
           alt="photo message"
-          className={`${message.img ? "w-[50%]" : "hidden"}`}
+          className={`${message?.img ? "w-[50%]" : "hidden"}`}
         />
       </div>
     </div>
