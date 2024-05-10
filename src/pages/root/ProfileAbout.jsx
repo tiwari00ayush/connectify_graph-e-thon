@@ -9,7 +9,7 @@ const ProfileAbout = () => {
         <div>
           <h1 className="text-[1.1rem] font-semibold text-para">Name</h1>
           <p className="px-2 py-2 bg-input text-white rounded-md">
-            {currentUser.displayName}
+            {currentUser?.displayName}
           </p>
         </div>
         <div>

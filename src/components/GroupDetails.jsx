@@ -4,7 +4,7 @@ import UserCard from "./UserCard";
 const GroupDetails = ({ showDetails, setShowDetails, group }) => {
   return (
     <div
-      className={`absolute top-1/2 left-1/2 right-1/2 bottom-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-input px-2 overflow-y-scroll ${
+      className={`absolute top-1/2 left-1/2 right-1/2 bottom-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[600px] bg-input px-5 py-5 overflow-y-scroll rounded-lg ${
         showDetails ? "" : "hidden"
       }`}
     >

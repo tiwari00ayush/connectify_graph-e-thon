@@ -31,7 +31,7 @@ const GroupChat = ({ group }) => {
     }
   };
   return (
-    <div className="relative flex-1 grid grid-rows-[80px_1fr_50px] overflow-scroll">
+    <div className="relative flex-1 grid grid-rows-[80px_1fr_60px] overflow-scroll">
       <GroupDetails
         showDetails={showDetails}
         setShowDetails={setShowDetails}
@@ -47,7 +47,7 @@ const GroupChat = ({ group }) => {
           <h1>{group?.name}</h1>
         </div>
         <button
-          className="px-2 py-2 bg-input text-white"
+          className="px-2 py-2 bg-input text-white rounded-md"
           onClick={() => {
             setShowDetails(true);
           }}
@@ -59,10 +59,10 @@ const GroupChat = ({ group }) => {
         {group?.messages.length !== 0 &&
           group?.messages?.map((message) => <Message message={message} />)}
       </div>
-      <div className="h-[50px] w-full flex">
+      <div className="h-[50px] w-full flex px-2">
         <input
           type="text"
-          className="flex-1 h-ful rounded-md text-black px-2 outline-none"
+          className="flex-1 h-ful rounded-md text-white px-2 outline-none bg-input"
           value={text}
           onChange={(e) => {
             setText(e.target.value);

@@ -46,10 +46,9 @@ const Group = () => {
     <div className="text-white flex h-screen overflow-y-scroll">
       <div className="w-[300px]  border-r-2 border-input px-2">
         {currentUser?.groupStatus ? (
-          <div className="flex gap-2 py-2 *:items-center text-[1.2rem] border-b-input border-b-[1px]">
-            <h1>You are in a group </h1>
-            {group && <p> {group?.name} </p>}
-          </div>
+          <h1 className="text-center text-[1.6rem] py-3 bg-purple-light h-[80px] flex justify-center items-center mb-4">
+            Groups
+          </h1>
         ) : (
           <div className="py-2 flex justify-between items-center text-[1.2rem]">
             Available{" "}
@@ -64,7 +63,6 @@ const Group = () => {
 
         <div>
           <div>
-            <h1 className="text-[1.3rem] my-2">Current Group : </h1>
             <GroupCard
               name={group?.name}
               lastMessage={group?.messages[group?.messages.length - 1]?.message}

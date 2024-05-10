@@ -55,7 +55,7 @@ const Message = ({ message }) => {
         } gap-2`}
       >
         <p
-          className={`px-2 text-black bg-white rounded-r-md rounded-b-md ${
+          className={`px-2 text-white bg-input rounded-r-md rounded-b-md ${
             message?.message === "" ? "hidden" : ""
           }`}
         >
