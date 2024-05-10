@@ -18,7 +18,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <Link to={"/landing"}>
+      <Link to={"/"}>
         <h1 className="text-[40px] font-bold -translate-x-4 hover:text-primary-btn duration-200 ease-in-out">
           CONNECTIFY
         </h1>
