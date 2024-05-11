@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import {
@@ -29,7 +29,9 @@ import {
   ProfileLinks,
   CreatePost,
   Group,
+  Offers,
 } from "./pages/root";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
@@ -43,6 +45,7 @@ const router = createBrowserRouter(
         </Route>
         <Route path="create" element={<CreatePost />} />
         <Route path="group" element={<Group />} />
+        <Route path="offers" element={<Offers />} />
       </Route>
       <Route path="" element={<LandingPage />} />
       <Route path="about" element={<AboutUs />} />

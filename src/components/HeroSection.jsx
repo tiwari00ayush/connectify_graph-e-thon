@@ -19,7 +19,6 @@ const HeroSection = () => {
           <button
             onClick={() => {
               setShowLogin((prev) => !prev);
-              console.log(showLogin);
             }}
             className="cursor-pointer px-4 py-2 bg-primary-btn text-[24px] text-secondary-btn rounded-full shadow-md shadow-black duration-[400ms] hover:shadow-lg hover:shadow-black"
           >

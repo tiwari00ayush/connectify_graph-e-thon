@@ -22,7 +22,6 @@ const CreatePost = () => {
     const timestamp = new Date().getTime(); // Get current timestamp
     const randomString = Math.random().toString(36).substring(2, 8); // Generate a random string
     const fileName = `${currentUser.uid}_${timestamp}_${randomString}.jpg`; // Constructing the unique file name
-    console.log(caption, location, file, tags);
     const storageRef = ref(storage, `images/${fileName}`);
     // const storageRef = ref(storage, currentUser.username);
 

@@ -50,32 +50,35 @@ const Group = () => {
             Groups
           </h1>
         ) : (
-          <div className="py-2 flex justify-between items-center text-[1.2rem]">
-            Available{" "}
-            <span
-              className={`${
-                available ? "bg-green" : "bg-red"
-              } px-3 py-3 rounded-full cursor-pointer`}
-              onClick={updateAvailablity}
-            ></span>
+          <div>
+            <div className="py-2 flex justify-between items-center text-[1.2rem]">
+              Available{" "}
+              <span
+                className={`${
+                  available ? "bg-green" : "bg-red"
+                } px-3 py-3 rounded-full cursor-pointer`}
+                onClick={updateAvailablity}
+              ></span>
+            </div>
+            <p>Click on red button to join new group</p>
+            {currentUser?.groupStatus === false &&
+              currentUser?.available === true && <p>Wait for some time</p>}
           </div>
         )}
 
         <div>
           <div>
-            <GroupCard
-              name={group?.name}
-              lastMessage={group?.messages[group?.messages.length - 1]?.message}
-            />
+            {group && (
+              <GroupCard
+                name={group?.name}
+                lastMessage={
+                  group?.messages[group?.messages.length - 1]?.message
+                }
+              />
+            )}
           </div>
           <div>
             <h1 className="text-[1.3rem] mb-3">Past Groups : </h1>
-            <GroupCard name={"abcd"} />
-            <GroupCard name={"abcd"} />
-            <GroupCard name={"abcd"} />
-            <GroupCard name={"abcd"} />
-            <GroupCard name={"abcd"} />
-            <GroupCard name={"abcd"} />
           </div>
         </div>
       </div>

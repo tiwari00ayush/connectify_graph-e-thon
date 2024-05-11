@@ -19,10 +19,8 @@ const Message = ({ message }) => {
 
       if (docSnap.exists()) {
         setUserInfo(docSnap.data());
-        console.log("Document data:", docSnap.data());
       } else {
         // docSnap.data() will be undefined in this case
-        console.log("No such document!");
       }
     };
     getSenderInfo();

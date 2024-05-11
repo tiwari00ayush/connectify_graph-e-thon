@@ -161,11 +161,9 @@ const Age = () => {
       );
       const data = await res.json();
       setStateList(data.data.states);
-      console.log(data);
     };
     getStates();
   }, []);
-  console.log(stateList);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -196,7 +194,6 @@ const Age = () => {
       })
     );
   };
-  console.log(showDegree);
   return (
     <div className="w-full px-2">
       <h1 className="font-livvic text-[36px]">About Section</h1>

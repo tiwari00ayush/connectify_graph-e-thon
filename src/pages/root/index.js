@@ -6,6 +6,7 @@ import ProfileInterest from "./ProfileInterest";
 import ProfileLinks from "./ProfileLinks";
 import CreatePost from "./CreatePost";
 import Group from "./Group";
+import Offers from "./Offers";
 export {
   RootLayout,
   Profile,
@@ -15,4 +16,5 @@ export {
   ProfileLinks,
   CreatePost,
   Group,
+  Offers,
 };

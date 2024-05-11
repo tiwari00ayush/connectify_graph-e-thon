@@ -98,7 +98,6 @@ const Skills = () => {
         <button
           className="bg-purple-light px-6 text-white py-2 rounded-md"
           onClick={() => {
-            console.log(newSkill);
             setNewSkillArr((prev) => [
               {
                 id: skills.length + 1 + 1 + newSkillArr.length + 1,

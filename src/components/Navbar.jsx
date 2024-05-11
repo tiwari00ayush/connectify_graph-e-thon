@@ -28,7 +28,6 @@ const Navbar = () => {
         className="px-8 py-2 bg-secondary-btn rounded-full shadow-md shadow-black hover:shadow-lg hover:shadow-secondary-btn duration-300 ease-in-out"
         onClick={() => {
           setShowLogin((prev) => !prev);
-          console.log(showLogin);
         }}
       >
         LOGIN

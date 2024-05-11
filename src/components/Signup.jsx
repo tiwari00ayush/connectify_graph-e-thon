@@ -18,12 +18,11 @@ const Login = ({ showSignup, setShowSignup, setShowLogin }) => {
   const photoURL =
     "https://firebasestorage.googleapis.com/v0/b/connectify2-cb944.appspot.com/o/profile%2Fdefault.jpg.avif?alt=media&token=40629d09-65a4-49b7-995b-0e6161a7e06b";
   const handleGoogleSignIn = async () => {
-    console.log("hello");
     try {
       setError(null);
       const res = await signInWithPopup(auth, provider);
       const user = res?.user;
-      console.log(user);
+
       await setDoc(doc(db, "users", user.uid), {
         email: user.email,
         displayName: user.displayName,
@@ -62,7 +61,7 @@ const Login = ({ showSignup, setShowSignup, setShowLogin }) => {
     try {
       const res = await createUserWithEmailAndPassword(auth, email, password);
       const user = res?.user;
-      console.log(user);
+
       await updateProfile(user, {
         displayName,
         photoURL,

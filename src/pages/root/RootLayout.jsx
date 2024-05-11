@@ -21,7 +21,7 @@ const RootLayout = () => {
       id: "2",
       name: "Notifications",
       icon: <IoMdNotifications />,
-      link: "/root/notification",
+      link: "/root/notifications",
     },
     { id: "3", name: "Group", icon: <MdGroups2 />, link: "/root/group" },
     { id: "4", name: "Offers", icon: <BiSolidOffer />, link: "/root/offers" },

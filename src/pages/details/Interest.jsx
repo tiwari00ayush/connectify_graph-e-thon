@@ -66,7 +66,6 @@ const Interest = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(selectedInterest);
     const userRef = doc(db, "users", currentUser.uid);
 
     // Set the "capital" field of the city 'DC'
