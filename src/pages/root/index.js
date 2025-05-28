@@ -7,7 +7,6 @@ import ProfileLinks from "./ProfileLinks";
 import CreatePost from "./CreatePost";
 import Group from "./Group";
 import Offers from "./Offers";
-import Map from "./Map";
 export {
   RootLayout,
   Profile,
@@ -18,5 +17,4 @@ export {
   CreatePost,
   Group,
   Offers,
-  Map,
 };
