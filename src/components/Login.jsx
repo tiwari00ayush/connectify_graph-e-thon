@@ -13,11 +13,9 @@ const Login = ({ showLogin, setShowLogin }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-  const handleGoogleSignUp = async () => {
+  const handleGoogleSignin = async () => {
     try {
-      const res = await signInWithPopup(auth, provider);
-      const user = res?.user;
-
+      await signInWithPopup(auth, provider);
       navigate("/root/profile");
     } catch (error) {
       setError(error);
@@ -30,15 +28,12 @@ const Login = ({ showLogin, setShowLogin }) => {
     const email = e.target[0].value;
     const password = e.target[1].value;
     try {
-      const res = await signInWithEmailAndPassword(auth, email, password);
-      const user = res?.user;
-
+      await signInWithEmailAndPassword(auth, email, password);
       navigate("/root/profile");
       setLoading(false);
     } catch (error) {
       setLoading(false);
       setError(error);
-      console.log(error);
     }
   };
   if (showLogin == true)
@@ -103,7 +98,7 @@ const Login = ({ showLogin, setShowLogin }) => {
               </form>
               <button
                 className="bg-white border-primary-btn border-2 px-[10px] rounded-full w-full py-2 my-2 duration-200 ease-in-out hover:bg-primary-btn shadow-md"
-                onClick={handleGoogleSignUp}
+                onClick={handleGoogleSignin}
               >
                 Sign in with google{" "}
                 <FaGoogle

@@ -77,9 +77,6 @@ const Group = () => {
               />
             )}
           </div>
-          <div>
-            <h1 className="text-[1.3rem] mb-3">Past Groups : </h1>
-          </div>
         </div>
       </div>
 

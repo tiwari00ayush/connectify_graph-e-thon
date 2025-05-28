@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import meetbit from "../../assets/meetbit.png";
 import repo from "../../assets/repo.png";
 import { Link, Navigate, Outlet } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 const Profile = () => {
   const { currentUser } = useAuth();
+
   if (currentUser?.formStatus === false)
     return <Navigate to={"/details/age"} />;
   const { editable, setEditable } = useState(false);
@@ -69,14 +70,6 @@ const Profile = () => {
             </Link>
           ))}
         </div>
-        <button
-          className="bg-secondary-btn my-4 px-6 py-3  text-[1rem] text-white rounded-md"
-          onClick={(prev) => {
-            setEditable(!prev);
-          }}
-        >
-          Edit Profile
-        </button>
       </div>
       <Outlet editable={editable} />
     </div>

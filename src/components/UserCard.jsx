@@ -3,6 +3,8 @@ import { CiCircleChevDown } from "react-icons/ci";
 
 const UserCard = ({ user }) => {
   const [show, setShow] = useState(false);
+  console.log(user);
+
   return (
     <div
       key={user.id}
@@ -19,6 +21,7 @@ const UserCard = ({ user }) => {
             className="w-[50px] h-[50px] rounded-full"
           />
           <h1>{user.displayName}</h1>
+          {/* <p>{user.email}</p> */}
         </div>
         <CiCircleChevDown style={{ fontSize: "1.5rem" }} />
       </div>

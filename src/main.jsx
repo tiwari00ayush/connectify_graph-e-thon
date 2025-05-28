@@ -30,6 +30,7 @@ import {
   CreatePost,
   Group,
   Offers,
+  Map,
 } from "./pages/root";
 
 const router = createBrowserRouter(
@@ -46,6 +47,7 @@ const router = createBrowserRouter(
         <Route path="create" element={<CreatePost />} />
         <Route path="group" element={<Group />} />
         <Route path="offers" element={<Offers />} />
+        <Route path="map" element={<Map />} />
       </Route>
       <Route path="" element={<LandingPage />} />
       <Route path="about" element={<AboutUs />} />

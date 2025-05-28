@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import { FaHome } from "react-icons/fa";
 import { IoMdLogOut, IoMdNotifications } from "react-icons/io";
@@ -15,17 +15,18 @@ import { auth } from "../../firebase.config";
 const RootLayout = () => {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
+
   const navLinks = [
     { id: "1", name: "Home", icon: <FaHome />, link: "/root" },
-    {
-      id: "2",
-      name: "Notifications",
-      icon: <IoMdNotifications />,
-      link: "/root/notifications",
-    },
+    // {
+    //   id: "2",
+    //   name: "Notifications",
+    //   icon: <IoMdNotifications />,
+    //   link: "/root",
+    // },
     { id: "3", name: "Group", icon: <MdGroups2 />, link: "/root/group" },
     { id: "4", name: "Offers", icon: <BiSolidOffer />, link: "/root/offers" },
-    { id: "5", name: "Map", icon: <FaMapMarkedAlt />, link: "/root/map" },
+    // { id: "5", name: "Map", icon: <FaMapMarkedAlt />, link: "/root/map" },
     {
       id: "6",
       name: "Profile",

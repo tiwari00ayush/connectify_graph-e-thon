@@ -27,11 +27,7 @@ const ProfileAbout = () => {
         <div>
           <h1 className="text-para">Bio</h1>
           <p className="px-2 py-2 bg-input rounded-md h-[200px] text-white">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptatum, perspiciatis. Quaerat consequuntur nisi excepturi
-            dolorum hic, incidunt dignissimos et tempora nostrum repudiandae
-            tenetur dolorem numquam quae, adipisci ea exercitationem
-            praesentium!
+            {currentUser?.bio}
           </p>
         </div>
       </div>

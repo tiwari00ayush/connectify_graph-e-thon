@@ -45,11 +45,11 @@ const Post = ({ post, ownerId }) => {
           <span key={index}>#{tag}</span>
         ))}
       </div>
-      <img src={post?.fileUrl} alt="post photo" className="rounded-md my-2" />
-      <div className="flex justify-between items-center">
-        <div className="flex items-center gap-2">like</div>
-        save
-      </div>
+      <img
+        src={post?.fileUrl}
+        alt="post photo"
+        className="rounded-md my-2 w-full h-[600px] object-cover"
+      />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
 import UserCard from "./UserCard";
+import qr from "../assets/qr.png";
 const GroupDetails = ({ showDetails, setShowDetails, group }) => {
   return (
     <div
@@ -11,9 +12,12 @@ const GroupDetails = ({ showDetails, setShowDetails, group }) => {
       <h1 className="text-[35px]">Group Details</h1>
       <p className="text-para">Know about your group</p>
       <div className="mt-10 flex flex-col gap-5 ">
-        {group?.users?.map((user) => (
-          <UserCard user={user} />
+        {group?.users?.map((user, index) => (
+          <UserCard user={user} key={index} />
         ))}
+      </div>
+      <div className="w-full h-[250px] flex justify-center items-center">
+        <img src={qr} alt="" className="w-[150px] h-[150px]" />
       </div>
       <button
         onClick={() => {
